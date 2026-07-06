@@ -1,344 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Wedding Guestbook</title>
-    <style>
-        /* Color Palette: Elegant Forest Green & Gold Highlights */
-        :root {
-            --forest-green: #1E3024;
-            --soft-sage: #F4F6F4;
-            --gold: #CFB53B;
-            --gold-hover: #AA9125;
-            --charcoal: #2C3E35;
-            --white: #FFFFFF;
-            --error-red: #C53030;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Wedding Guestbook</title>
+<style>
+/* Color Palette: Elegant Forest Green & Gold Highlights */
+:root {
+--forest-green: #1E3024;
+--soft-sage: #F4F6F4;
+--gold: #CFB53B;
+--gold-hover: #AA9125;
+--charcoal: #2C3E35;
+--white: #FFFFFF;
+--error-red: #C53030;
+}
 
-        body {
-            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            background-color: var(--soft-sage);
-            color: var(--charcoal);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+body {
+font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+background-color: var(--soft-sage);
+color: var(--charcoal);
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
 
-        /* Header Image Styles */
-        header {
-            width: 100%;
-            height: 40vh; /* Takes up exactly 40% of the browser's viewable height */
-            min-height: 250px;
-            max-height: 450px;
-            overflow: hidden;
-            position: relative;
-            border-bottom: 4px solid var(--gold);
-        }
+/* Header Image Styles */
+header {
+width: 100%;
+height: 40vh; /* Takes up exactly 40% of the browser's viewable height */
+min-height: 250px;
+max-height: 450px;
+overflow: hidden;
+position: relative;
+border-bottom: 4px solid var(--gold);
+}
 
-        .header-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Prevents the image from distorting */
-            object-position: center; /* Keeps the middle of your photo focused */
-            display: block;
-        }
+.header-img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Prevents the image from distorting */
+object-position: center; /* Keeps the middle of your photo focused */
+display: block;
+}
 
-        /* Main Content Container */
-        .container {
-            max-width: 550px;
-            width: 90%;
-            background: var(--white);
-            padding: 45px 35px;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(30, 48, 36, 0.08);
-            
-            /* Center it perfectly horizontally */
-            margin: -80px auto 60px auto; 
-            
-            position: relative;
-            z-index: 10;
-            box-sizing: border-box;
-            text-align: center;
-        }
+/* Main Content Container */
+.container {
+max-width: 550px;
+width: 90%;
+background: var(--white);
+padding: 45px 35px;
+border-radius: 12px;
+box-shadow: 0 15px 35px rgba(30, 48, 36, 0.08);
+margin: -80px auto 60px auto; /* Pulls container up over the banner slightly */
+position: relative;
+z-index: 10;
+box-sizing: border-box;
+text-align: center;
+}
 
-        h1 {
-            color: var(--forest-green);
-            font-size: 2.2em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
+h1 {
+color: var(--forest-green);
+font-size: 2.2em;
+margin-top: 0;
+margin-bottom: 10px;
+}
 
-        h2 {
-            color: var(--forest-green);
-            font-size: 1.6em;
-            margin-top: 0;
-            margin-bottom: 7px;
-        }
+h2 {
+color: var(--forest-green);
+font-size: 1.6em;
+margin-top: 0;
+margin-bottom: 7px;
+}
 
-        .divider {
-            height: 2px;
-            width: 80px;
-            background-color: var(--gold);
-            margin: 15px auto;
-        }
+.divider {
+height: 2px;
+width: 80px;
+background-color: var(--gold);
+margin: 15px auto;
+}
 
-        .intro-text {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #556B5F;
-            line-height: 1.6;
-            margin-bottom: 35px;
-            font-size: 1.05em;
-        }
+.intro-text {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+color: #556B5F;
+line-height: 1.6;
+margin-bottom: 35px;
+font-size: 1.05em;
+}
 
-        /* Elegant Form Elements */
-        .file-upload-wrapper {
-            margin-bottom: 25px;
-        }
-        .file-input-label {
-            display: inline-block;
-            background-color: var(--forest-green);
-            color: var(--white);
-            border: 2px solid var(--forest-green);
-            padding: 14px 28px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
-        }
-        .file-input-label:hover {
-            background-color: var(--white);
-            color: var(--forest-green);
-        }
+/* Elegant Form Elements */
+.file-upload-wrapper {
+margin-bottom: 25px;
+}
 
-        input[type="file"] {
-            display: none;
-        }
+.file-input-label {
+display: inline-block;
+background-color: var(--forest-green);
+color: var(--white);
+border: 2px solid var(--forest-green);
+padding: 14px 28px;
+border-radius: 6px;
+cursor: pointer;
+font-family: 'Segoe UI', sans-serif;
+font-weight: 600;
+letter-spacing: 0.5px;
+transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
 
-        #fileName {
-            margin-top: 12px;
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 0.9em;
-            color: #718096;
-            font-style: italic;
-        }
+.file-input-label:hover {
+background-color: var(--white);
+color: var(--forest-green);
+}
 
-        /* Submit Button */
-        button[type="submit"] {
-            background-color: var(--gold);
-            color: var(--white);
-            border: none;
-            padding: 14px 30px;
-            font-size: 1.1em;
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
+/* Subtle click animation for desktop users */
+.file-input-label:active, button[type="submit"]:active {
+transform: scale(0.98);
+}
 
-        button[type="submit"]:hover {
-            background-color: var(--gold-hover);
-        }
+input[type="file"] {
+display: none;
+}
 
-        button[type="submit"]:disabled {
-            background-color: #CBD5E0;
-            color: #718096;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
+#fileName {
+margin-top: 12px;
+font-family: 'Segoe UI', sans-serif;
+font-size: 0.9em;
+color: #718096;
+font-style: italic;
+}
 
-        /* Status Messages */
-        #status {
-            margin-top: 25px;
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 600;
-            font-size: 0.95em;
-        }
-        .success { color: var(--forest-green); }
-        .error { color: var(--error-red); }
+/* Submit Button */
+button[type="submit"] {
+background-color: var(--gold);
+color: var(--white);
+border: none;
+padding: 14px 30px;
+font-size: 1.1em;
+font-family: 'Segoe UI', sans-serif;
+font-weight: bold;
+letter-spacing: 1px;
+border-radius: 4px;
+cursor: pointer;
+width: 100%;
+transition: background 0.3s ease;
+box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
 
-        /* Footer Layout */
-        footer {
-            margin-top: auto;
-            background-color: var(--forest-green);
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            padding: 25px 20px;
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 0.85em;
-            border-top: 3px solid var(--gold);
-        }
+button[type="submit"]:hover {
+background-color: var(--gold-hover);
+}
 
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: bold;
-        }
+button[type="submit"]:disabled {
+background-color: #CBD5E0;
+color: #718096;
+cursor: not-allowed;
+box-shadow: none;
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-            /* Smooth hover states for elements */
-        .file-input-label {
-            display: inline-block;
-            background-color: var(--forest-green);
-            color: var(--white);
-            border: 2px solid var(--forest-green);
-            padding: 14px 28px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
-        }
-        
-        /* Subtle click animation for desktop users */
-        .file-input-label:active, button[type="submit"]:active {
-            transform: scale(0.98);
-        }
-    </style>
+/* Status Messages */
+#status {
+margin-top: 25px;
+font-family: 'Segoe UI', sans-serif;
+font-weight: 600;
+font-size: 0.95em;
+line-height: 1.5;
+}
+.success { color: var(--forest-green); }
+.error { color: var(--error-red); }
+
+/* Footer Layout */
+footer {
+margin-top: auto;
+background-color: var(--forest-green);
+color: rgba(255, 255, 255, 0.7);
+text-align: center;
+padding: 25px 20px;
+font-family: 'Segoe UI', sans-serif;
+font-size: 0.85em;
+border-top: 3px solid var(--gold);
+}
+
+footer a {
+color: var(--gold);
+text-decoration: none;
+font-weight: bold;
+}
+
+footer a:hover {
+text-decoration: underline;
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <img src="BobbyandMalu236.jpg" alt="Wedding Banner" class="header-img">
-    </header>
+<header>
+<img src="BobbyandMalu236.jpg" alt="Wedding Banner" class="header-img">
+</header>
 
-    <div class="container">
-        <h1>Our Digital Guestbook</h1>
-        <div class="divider"></div>
-        
-        <p class="intro-text">
-            Thankk you for celebrating with us! We want to cherish every memory forever. 
-            Please use this page to upload your favourite moments from the day. 
-            Thank you for celebrating with us!
-        </p>
-        
-        <form id="uploadForm">
-            <div class="file-upload-wrapper">
-                <label class="file-input-label" for="photoInput">
-                    ✨ Choose a Photo
-                </label>
-                <input type="file" id="photoInput" accept="image/*" required>
-                <div id="fileName">No image chosen yet</div>
-            </div>
-            
-            <button type="submit" id="submitBtn">Upload Photo</button>
-        </form>
-        
-        <div id="status"></div>
-    </div>
+<div class="container">
+<h1>Our Digital Guestbook</h1>
+<div class="divider"></div>
 
-    <footer>
-        <p>© 2026 Made with love for our special day. | Sneak peek behind the scenes? <a href="https://example.com/silly-meme" target="_blank">Click here! 😉</a></p>
-    </footer>
+<p class="intro-text">
+Thank you for celebrating with us! We want to cherish every memory forever. 
+Please use this page to upload your favourite moments from the day. 
+Thank you for celebrating with us!
+</p>
 
-    <script>
-        // 1. PASTE YOUR GOOGLE WEB APP ENDPOINT URL HERE
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyKT7721Sc4hCtJ6Mj091Tx0xDZC578Gb1paHn_uEH3xw7Sd1qUoHW3ZavOY4dfR2g0qQ/exec";
+<form id="uploadForm">
+<div class="file-upload-wrapper">
+<label class="file-input-label" for="photoInput">
+✨ Choose Photos
+</label>
+<input type="file" id="photoInput" accept="image/*" multiple required>
+<div id="fileName">No images chosen yet</div>
+</div>
 
-        // Security constants enforced on client-side
-        const MAX_FILE_SIZE_MB = 10; 
-        const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+<button type="submit" id="submitBtn">Upload Photos</button>
+</form>
 
-        const photoInput = document.getElementById('photoInput');
-        const fileNameDiv = document.getElementById('fileName');
-        const uploadForm = document.getElementById('uploadForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const statusDiv = document.getElementById('status');
+<div id="status"></div>
+</div>
 
-        // Dynamically updates selected file status + basic client checks
-        photoInput.addEventListener('change', function() {
-            if (this.files && this.files.length > 0) {
-                const file = this.files[0];
-                
-                // Security Check #1: Validate it's an image
-                if (!file.type.startsWith('image/')) {
-                    statusDiv.className = "error";
-                    statusDiv.textContent = "❌ Please select an image file (PNG, JPG, HEIC).";
-                    this.value = ''; // reset selection
-                    fileNameDiv.textContent = "No image chosen yet";
-                    return;
-                }
-                
-                // Security Check #2: Enforce size limit before converting to string
-                if (file.size > MAX_FILE_SIZE_BYTES) {
-                    statusDiv.className = "error";
-                    statusDiv.textContent = `❌ File is too large. Maximum size allowed is ${MAX_FILE_SIZE_MB}MB.`;
-                    this.value = ''; // reset selection
-                    fileNameDiv.textContent = "No image chosen yet";
-                    return;
-                }
+<footer>
+<p>© 2026 Made with love for our special day. | Sneak peek behind the scenes? <a href="https://example.com/silly-meme" target="_blank">Click here! 😉</a></p>
+</footer>
 
-                statusDiv.textContent = ""; // Clear existing error messages if file passes validation
-                fileNameDiv.textContent = `${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
-            } else {
-                fileNameDiv.textContent = "No image chosen yet";
+<script>
+// 1. REPLACE WITH YOUR BRAND NEW DEPLOYMENT WEB APP URL HERE
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyawoxVxdaeZNGjuMaUVgI9yT6e3H056CAA34FOVbMcOLoyieYIYqUYjQhmTy-A35FEGg/exec";
+
+const MAX_FILE_SIZE_MB = 10; 
+const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
+
+const photoInput = document.getElementById('photoInput');
+const fileNameDiv = document.getElementById('fileName');
+const uploadForm = document.getElementById('uploadForm');
+const submitBtn = document.getElementById('submitBtn');
+const statusDiv = document.getElementById('status');
+
+// Track valid files globally across processing selections
+let selectedFiles = [];
+
+photoInput.addEventListener('change', function() {
+    selectedFiles = [];
+    statusDiv.textContent = "";
+    
+    if (this.files && this.files.length > 0) {
+        let validCount = 0;
+        let summaryText = [];
+
+        for (let i = 0; i < this.files.length; i++) {
+            const file = this.files[i];
+
+            if (!file.type.startsWith('image/')) {
+                statusDiv.className = "error";
+                statusDiv.textContent = `❌ "${file.name}" skipped: Not a valid image.`;
+                continue;
             }
-        });
 
-        // Safe pipeline processing form submissions
-        uploadForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            if (file.size > MAX_FILE_SIZE_BYTES) {
+                statusDiv.className = "error";
+                statusDiv.textContent = `❌ "${file.name}" skipped: Exceeds ${MAX_FILE_SIZE_MB}MB.`;
+                continue;
+            }
+
+            selectedFiles.push(file);
+            validCount++;
+        }
+
+        if (selectedFiles.length > 0) {
+            fileNameDiv.textContent = `Selected ${selectedFiles.length} photo(s) ready for upload.`;
+        } else {
+            fileNameDiv.textContent = "No images chosen yet";
+            this.value = '';
+        }
+    } else {
+        fileNameDiv.textContent = "No images chosen yet";
+    }
+});
+
+// Sequentially uploads each image to dodge server overload and handle multiple pictures
+uploadForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (selectedFiles.length === 0) return;
+
+    submitBtn.disabled = true;
+    statusDiv.className = "";
+    
+    let uploadedCount = 0;
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+        const file = selectedFiles[i];
+        submitBtn.textContent = `Uploading photo ${i + 1} of ${selectedFiles.length}...`;
+
+        try {
+            await uploadSingleFile(file);
+            uploadedCount++;
+        } catch (error) {
+            console.error(error);
+            statusDiv.className = "error";
+            statusDiv.innerHTML += `❌ Failed to upload: ${file.name}<br>`;
+        }
+    }
+
+    if (uploadedCount === selectedFiles.length) {
+        statusDiv.className = "success";
+        statusDiv.textContent = "🎉 All photos uploaded successfully! Thank you for sharing in our day. ❤️";
+        uploadForm.reset();
+        selectedFiles = [];
+        fileNameDiv.textContent = "No images chosen yet";
+    } else if (uploadedCount > 0) {
+        statusDiv.className = "error";
+        statusDiv.innerHTML += `⚠️ Upload process complete. Only ${uploadedCount} out of ${selectedFiles.length} photos saved successfully.`;
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Upload Photos";
+});
+
+// Reads and posts a file using standard parameter encoding to clear CORS blocks
+function uploadSingleFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        
+        reader.onload = function() {
+            const base64String = reader.result.split(',')[1];
             
-            const file = photoInput.files[0];
-            if (!file) return;
+            // Convert to URLencoded parameters instead of application/json to bypass preflight OPTIONS blocks
+            const formParameters = new URLSearchParams();
+            formParameters.append("base64", base64String);
+            formParameters.append("type", file.type);
+            formParameters.append("filename", file.name);
 
-            // Enter uploading UI visual state
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Uploading Your Memory... Please Wait";
-            statusDiv.textContent = "";
-
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            
-            reader.onload = function() {
-                const base64String = reader.result.split(',')[1];
-                
-                const payload = {
-                    base64: base64String,
-                    type: file.type,
-                    filename: file.name
-                };
-
-                fetch(WEB_APP_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(payload)
-                })
-                .then(response => {
-                    if (!response.ok) throw new Error("Network issues encountered.");
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.status === 'success') {
-                        statusDiv.className = "success";
-                        statusDiv.textContent = "Uploaded successfully! Thank you for sharing in our day.";
-                        uploadForm.reset();
-                        fileNameDiv.textContent = "No image chosen yet";
-                    } else {
-                        throw new Error(data.message || "Upload failed on server.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Transmission Error: ", error);
-                    statusDiv.className = "error";
-                    statusDiv.textContent = "Upload failed. Please try again.";
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "Upload Photo";
-                });
-            };
-        });
-    </script>
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: formParameters.toString(),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Network request rejected.");
+                return res.json();
+            })
+            .then(data => {
+                if (data.status === 'success') resolve();
+                else reject(data.message || "Server rejected processing pipeline.");
+            })
+            .catch(err => reject(err));
+        };
+        
+        reader.onerror = () => reject("File reading engine fault.");
+    });
+}
+</script>
 </body>
 </html>
